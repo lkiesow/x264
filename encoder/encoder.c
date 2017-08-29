@@ -1014,7 +1014,7 @@ static int x264_validate_parameters( x264_t *h, int b_open )
     float fps = (float)h->param.i_fps_num / h->param.i_fps_den;
     if( h->param.i_keyint_min == X264_KEYINT_MIN_AUTO )
         h->param.i_keyint_min = X264_MIN( h->param.i_keyint_max / 10, (int)fps );
-    h->param.i_keyint_min = x264_clip3( h->param.i_keyint_min, 1, h->param.i_keyint_max/2+1 );
+    h->param.i_keyint_min = x264_clip3( h->param.i_keyint_min, 1, h->param.i_keyint_max );
     h->param.rc.i_lookahead = x264_clip3( h->param.rc.i_lookahead, 0, X264_LOOKAHEAD_MAX );
     {
         int maxrate = X264_MAX( h->param.rc.i_vbv_max_bitrate, h->param.rc.i_bitrate );
